@@ -18,7 +18,7 @@ export class ShowListService {
             return Observable.of([]);
         }
 
-        const url = 'api'; // this.BASE_URL + 'search/shows?q=' + encodeURI(showName);
+        const url = '/api'; // this.BASE_URL + 'search/shows?q=' + encodeURI(showName);
         return this.http.get(url)
             .map(res => res.json())
             .catch(err => {

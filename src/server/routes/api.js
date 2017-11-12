@@ -41,7 +41,8 @@ const json = {
 };
 
 router.get('/', (req, res) => {
-    res.send(json);
+    console.log('**********************************');
+    res.send('json');
 });
 
 module.exports = router;
