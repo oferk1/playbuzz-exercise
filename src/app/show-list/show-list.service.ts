@@ -6,7 +6,8 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class ShowListService {
 
-    BASE_URL: string = 'https://api.tvmaze.com/';
+    // BASE_URL: string = 'https://api.tvmaze.com/';
+    BASE_URL: string = '';
 
     constructor(private http: Http) {
 
@@ -16,8 +17,8 @@ export class ShowListService {
         if (showName === '') {
             return Observable.of([]);
         }
-        
-        const url = this.BASE_URL + 'search/shows?q=' + encodeURI(showName);
+
+        const url = 'api'; // this.BASE_URL + 'search/shows?q=' + encodeURI(showName);
         return this.http.get(url)
             .map(res => res.json())
             .catch(err => {
