@@ -24,6 +24,6 @@ export class ShowListService {
             .catch(err => {
                 console.log(err);
                 return Observable.throw(err);
-            })
+            });
     }
 }

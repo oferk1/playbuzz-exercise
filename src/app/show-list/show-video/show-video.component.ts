@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
     selector: 'app-show-video',
@@ -10,7 +10,6 @@ export class ShowVideoComponent {
     @Input() video: any;
 
     constructor() {
-
     }
 
 }

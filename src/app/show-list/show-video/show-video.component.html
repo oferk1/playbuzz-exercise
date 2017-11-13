@@ -1,5 +1,6 @@
 
 <div class="video-container">
+
     <div class="video-header">
         <div class="video-title">
             <span>{{video.title}}</span>
@@ -8,6 +9,7 @@
             <span>{{video.views}} Views</span>
         </div>
     </div>
+
     <div class="show" *ngIf="video.source == 'facebook'">
         <div *ngIf="video.videoId; else elseBlock">
             <img src="https://graph.facebook.com/{{video.videoId}}/picture" />
