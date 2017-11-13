@@ -6,7 +6,6 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class ShowListService {
 
-    // BASE_URL: string = 'https://api.tvmaze.com/';
     BASE_URL: string = '';
 
     constructor(private http: Http) {
