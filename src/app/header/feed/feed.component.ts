@@ -17,8 +17,8 @@ export class FeedComponent {
 
     options = [
         { name: 'youtube', value: YOUTUBE_ID, checked: true },
-        { name: 'url', value: URL_ID, checked: true  },
-        { name: 'facebook', value: FACEBOOK_ID, checked: true  }];
+        { name: 'url', value: URL_ID, checked: false  },
+        { name: 'facebook', value: FACEBOOK_ID, checked: false  }];
 
     getFeed() {
         const checkedSources = flow(

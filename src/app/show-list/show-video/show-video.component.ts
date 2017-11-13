@@ -9,7 +9,4 @@ export class ShowVideoComponent {
 
     @Input() video: any;
 
-    constructor() {
-    }
-
 }
