@@ -4,7 +4,7 @@ import { reduce, filter, flow } from 'lodash/fp';
 
 
 @Component({
-    selector: 'app-search',
+    selector: 'feed-criteria',
     styleUrls: ['feed.component.scss'],
     templateUrl: 'feed.component.html'
 })
@@ -23,7 +23,7 @@ export class FeedComponent {
     constructor() {
     }
 
-    doSearch() {
+    getFeed() {
         const criteria = flow(
             filter('checked'),
             reduce((res, cb) => res.push(cb.value) && res, [])
