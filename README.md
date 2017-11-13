@@ -4,8 +4,9 @@ Video Feed - Playbuzz front-end exercise
 Set up:
 *************
 1. npm install
-2. npm run server
+2. npm run server ( on a separate terminal - to run the node service )
 3. npm start
+4. navigate to http://localhost:4200/
 
 
 Scope:
