@@ -1,5 +1,5 @@
-    <h1 class="title-feed">Video Feed</h1>
+<h1 class="title-feed">Video Feed</h1>
 <div class="topbar row offset-md-1">
-    <app-search class="col-md-5" [criteria]="headerStore.criteriaObservable | async"
+    <app-search class="app-search" [criteria]="headerStore.criteriaObservable | async"
                 (criteriaChange)="headerStore.criteria = $event"></app-search>
 </div>
