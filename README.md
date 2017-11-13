@@ -1,5 +1,4 @@
 Video Feed - Playbuzz front-end exercise
-
 **********
 
 Set up:
