@@ -7,8 +7,6 @@ import { HeaderStore } from "../state/header.store";
     styleUrls: ['header.component.scss'],
 })
 export class HeaderComponent {
-
     constructor(private headerStore: HeaderStore) {
     }
-
 }

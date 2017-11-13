@@ -5,10 +5,10 @@ import { reduce, filter, flow } from 'lodash/fp';
 
 @Component({
     selector: 'app-search',
-    styleUrls: ['search.component.scss'],
-    templateUrl: 'search.component.html'
+    styleUrls: ['feed.component.scss'],
+    templateUrl: 'feed.component.html'
 })
-export class SearchComponent {
+export class FeedComponent {
     @Input()
     criteria: string;
 

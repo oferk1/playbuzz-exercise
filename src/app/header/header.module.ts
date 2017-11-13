@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { HeaderComponent } from "./header.component";
-import { SearchComponent } from "./search/search.component";
+import { FeedComponent } from "./feed/feed.component";
 
 @NgModule({
     imports: [
@@ -11,7 +11,7 @@ import { SearchComponent } from "./search/search.component";
     ],
     declarations: [
         HeaderComponent,
-        SearchComponent
+        FeedComponent
     ],
     exports: [
         HeaderComponent
