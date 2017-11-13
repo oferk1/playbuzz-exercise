@@ -2,33 +2,33 @@
 <div class="video-container">
     <div class="video-header">
         <div class="video-title">
-            <span>{{show.title}}</span>
+            <span>{{video.title}}</span>
         </div>
         <div class="video-views">
-            <span>{{show.views}} Views</span>
+            <span>{{video.views}} Views</span>
         </div>
     </div>
-    <div class="show" *ngIf="show.source == 'facebook'">
-        <div *ngIf="show.videoId; else elseBlock">
-            <img src="https://graph.facebook.com/{{show.videoId}}/picture" />
-            <embed [src]="('http://www.facebook.com/v/' + show.videoId )| safe"
+    <div class="show" *ngIf="video.source == 'facebook'">
+        <div *ngIf="video.videoId; else elseBlock">
+            <img src="https://graph.facebook.com/{{video.videoId}}/picture" />
+            <embed [src]="('http://www.facebook.com/v/' + video.videoId )| safe"
                    type="application/x-shockwave-flash" allowscriptaccess="always"
                    allowfullscreen="true" width="559" height="224" />
         </div>
         <ng-template #elseBlock>Facebook video is missing</ng-template>
     </div>
 
-    <div class="show" *ngIf="show.source == 'youtube'">
-        <div *ngIf="show.videoId; else elseBlock">
-            <iframe width="559" height="315" [src]="('https://www.youtube.com/embed/' + show.videoId) | safe" frameborder="0" allowfullscreen></iframe>
+    <div class="show" *ngIf="video.source == 'youtube'">
+        <div *ngIf="video.videoId; else elseBlock">
+            <iframe width="559" height="315" [src]="('https://www.youtube.com/embed/' + video.videoId) | safe" frameborder="0" allowfullscreen></iframe>
         </div>
         <ng-template #elseBlock>Youtube video is missing</ng-template>
     </div>
 
-    <div class="show" *ngIf="show.source == 'url'">
-        <div *ngIf="show.url; else elseBlock">
+    <div class="show" *ngIf="video.source == 'url'">
+        <div *ngIf="video.url; else elseBlock">
             <video width="559" height="240" controls>
-                <source src="{{show.url}}" type="video/mp4">
+                <source src="{{video.url}}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>

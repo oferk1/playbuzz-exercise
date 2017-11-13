@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 })
 export class ShowVideoComponent {
 
-    @Input() show: any;
+    @Input() video: any;
 
     constructor() {
 
