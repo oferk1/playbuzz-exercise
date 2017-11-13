@@ -18,7 +18,7 @@ export class ShowListService {
             return Observable.of([]);
         }
 
-        const url = '/api?filter=123'; // this.BASE_URL + 'search/shows?q=' + encodeURI(showName);
+        const url = `/api?filter=${showName}`;
         return this.http.get(url)
             .map(res => res.json())
             .catch(err => {
