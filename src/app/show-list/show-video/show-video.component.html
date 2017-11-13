@@ -1,21 +1,37 @@
-<div class="show" *ngIf="show.source == 'facebook'">facebook
-    <img src="https://graph.facebook.com/{{show.videoId}}/picture" /><br>
-    <span>{{show.title}}</span><br>
-    <span>{{show.views}} </span>
+
+<div class="show" *ngIf="show.source == 'facebook'">
+    <div *ngIf="show.videoId; else elseBlock">
+        <img src="https://graph.facebook.com/{{show.videoId}}/picture" />
+        <embed [src]="('http://www.facebook.com/v/' + show.videoId )| safe"
+               type="application/x-shockwave-flash" allowscriptaccess="always"
+               allowfullscreen="true" width="400" height="224" />
+        <span>{{show.title}}</span><br>
+        <span>{{show.views}} </span>
+    </div>
+    <ng-template #elseBlock>Facebook video is missing</ng-template>
 </div>
-<div class="show" *ngIf="show.source == 'youtube'">youtube
-    <iframe width="560" height="315" [src]="('https://www.youtube.com/embed/' + show.videoId) | safe" frameborder="0" allowfullscreen></iframe>
-    <span>{{show.title}}</span><br>
-    <span>{{show.views}} </span>
+
+<div class="show" *ngIf="show.source == 'youtube'">
+    <div *ngIf="show.videoId; else elseBlock">
+        <iframe width="560" height="315" [src]="('https://www.youtube.com/embed/' + show.videoId) | safe" frameborder="0" allowfullscreen></iframe>
+        <span>{{show.title}}</span><br>
+        <span>{{show.views}} </span>
+
+    </div>
+    <ng-template #elseBlock>Youtube video is missing</ng-template>
 </div>
-<div class="show" *ngIf="show.source == 'url'">url
-    <img src="https://graph.facebook.com/{{show.videoId}}/picture" /><br>
-    <span>{{show.title}}</span><br>
-    <span>{{show.views}} </span>
-    <video width="320" height="240" controls>
-        <source src="{{show.url}}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+
+<div class="show" *ngIf="show.source == 'url'">
+    <div *ngIf="show.url; else elseBlock">
+        <img src="https://graph.facebook.com/{{show.videoId}}/picture" /><br>
+        <span>{{show.title}}</span><br>
+        <span>{{show.views}} </span>
+        <video width="320" height="240" controls>
+            <source src="{{show.url}}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <ng-template #elseBlock>Video is missing</ng-template>
 </div>
 
 
