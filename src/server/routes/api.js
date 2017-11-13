@@ -41,7 +41,12 @@ const json = {
 };
 
 router.get('/', (req, res) => {
-    res.send(json);
+    const http = require('http');
+    const request = http.get("http://cdn.playbuzz.com/content/feed/items", (response) => {
+        response.on('data', function (chunk) {
+            res.send(chunk)
+        });
+    });
 });
 
 module.exports = router;
