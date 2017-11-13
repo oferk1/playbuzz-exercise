@@ -41,6 +41,7 @@ const json = {
 };
 
 router.get('/', (req, res) => {
+    console.log(req.query.filter, "*********");
     const http = require('http');
     const request = http.get("http://cdn.playbuzz.com/content/feed/items", (response) => {
         response.on('data', function (chunk) {
