@@ -16,9 +16,9 @@ export class SearchComponent {
     criteriaChange: EventEmitter<string> = new EventEmitter<string>();
 
     options = [
-        { name: 'youtube', value: YOUTUBE_ID },
-        { name: 'url', value: URL_ID },
-        { name: 'facebook', value: FACEBOOK_ID }];
+        { name: 'youtube', value: YOUTUBE_ID, checked: true },
+        { name: 'url', value: URL_ID, checked: true  },
+        { name: 'facebook', value: FACEBOOK_ID, checked: true  }];
 
     constructor() {
     }
