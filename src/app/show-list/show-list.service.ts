@@ -9,15 +9,14 @@ export class ShowListService {
     BASE_URL: string = '';
 
     constructor(private http: Http) {
-
     }
 
-    getShows(showName: string): Observable<any> {
-        if (showName === '') {
+    getVideos(filtersList: string): Observable<any> {
+        if (filtersList === '') {
             return Observable.of([]);
         }
 
-        const url = `/api?filter=${showName}`;
+        const url = `/api?filter=${filtersList}`;
         return this.http.get(url)
             .map(res => res.json())
             .catch(err => {

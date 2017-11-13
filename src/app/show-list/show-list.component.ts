@@ -20,7 +20,7 @@ export class ShowListComponent implements OnInit {
 
     ngOnInit() {
         this.headerStore.criteriaObservable.subscribe(
-            criteria => this.showListService.getShows(criteria).subscribe(
+            criteria => this.showListService.getVideos(criteria).subscribe(
                 shows => {
                     const feedVideos = flow(
                         map(item => item),
