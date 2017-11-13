@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ShowsStore } from "../state/shows.store";
 import { ShowListService } from "./show-list.service";
 import { HeaderStore } from "../state/header.store";
-
+import { map, filter, flow} from 'lodash/fp';
 @Component({
     selector: 'app-show-list',
     templateUrl: 'show-list.component.html',
@@ -23,20 +23,19 @@ export class ShowListComponent implements OnInit {
         this.headerStore.criteriaObservable.subscribe(
             criteria => this.showListService.getShows(criteria).subscribe(
                 shows => {
-                    this.showsStore.shows = shows
-                        .map(item => item.show)
-                        .filter(item => !!item.image);
+                    const shows1 = flow(
+                        map(item => item),
+                        filter(item => true)
+                    )(shows)
+                    this.shows = shows1;
                 }
             )
         );
 
-        this.showsStore.showsObservable.subscribe(
-            shows => this.shows = shows
-        );
     }
 
     navigate(show) {
-        console.log(`selected show: ${show.name}`);
+        console.log(`selected show: ${show.title}`);
     }
 
 }

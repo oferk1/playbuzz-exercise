@@ -1,3 +1,3 @@
-<div class="row offset-md-1">
-    <app-show-tile *ngFor="let show of shows" [show]="show" (showSelected)="navigate(show)"></app-show-tile>
-</div>
+<app-show-list class="row offset-md-1">yyyyy
+    <div *ngFor="let show of shows" >{{show.title}}</div>
+</app-show-list>

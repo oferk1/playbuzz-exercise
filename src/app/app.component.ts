@@ -24,9 +24,6 @@ export class AppComponent implements OnInit {
             criteria => console.log(`criteria: ${criteria}`)
         );
 
-        this.showsStore.showsObservable.subscribe(
-            shows => console.log(`shows found: ${shows.length}`)
-        );
     }
 
 }
