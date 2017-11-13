@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ShowListService } from "./show-list.service";
 import { HeaderStore } from "../state/header.store";
 import { map, filter, flow} from 'lodash/fp';
+import { first } from 'lodash';
 @Component({
     selector: 'app-show-list',
     templateUrl: 'show-list.component.html',
@@ -10,7 +11,7 @@ import { map, filter, flow} from 'lodash/fp';
 })
 export class ShowListComponent implements OnInit {
 
-    shows = [];
+    videos = [];
 
     constructor(
                 private headerStore: HeaderStore,
@@ -18,15 +19,14 @@ export class ShowListComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this is dirty, we will see how to clean this up later on...
         this.headerStore.criteriaObservable.subscribe(
             criteria => this.showListService.getShows(criteria).subscribe(
                 shows => {
-                    const shows1 = flow(
+                    const feedVideos = flow(
                         map(item => item),
                         filter(item => true)
-                    )(shows)
-                    this.shows = shows1[0];
+                    )(shows);
+                    this.videos = first(feedVideos);
                 }
             )
         );
