@@ -20,15 +20,12 @@ export class FeedComponent {
         { name: 'url', value: URL_ID, checked: true  },
         { name: 'facebook', value: FACEBOOK_ID, checked: true  }];
 
-    constructor() {
-    }
-
     getFeed() {
-        const criteria = flow(
+        const checkedSources = flow(
             filter('checked'),
             reduce((res, cb) => res.push(cb.value) && res, [])
         )(this.options);
-        this.criteriaChange.emit(criteria);
+        this.criteriaChange.emit(checkedSources);
     }
 
 }
