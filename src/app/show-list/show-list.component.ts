@@ -11,9 +11,9 @@ import { map, filter, flow} from 'lodash/fp';
 })
 export class ShowListComponent implements OnInit {
 
-    shows: any[];
+    shows = [];
 
-    constructor(private showsStore: ShowsStore,
+    constructor(
                 private headerStore: HeaderStore,
                 private showListService: ShowListService) {
     }
@@ -27,15 +27,11 @@ export class ShowListComponent implements OnInit {
                         map(item => item),
                         filter(item => true)
                     )(shows)
-                    this.shows = shows1;
+                    this.shows = shows1[0];
                 }
             )
         );
 
-    }
-
-    navigate(show) {
-        console.log(`selected show: ${show.title}`);
     }
 
 }
