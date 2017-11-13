@@ -2,8 +2,13 @@
   display: flex;
   align-items: baseline;
 
-  input {
-    margin-right: 10px;
-    height: 36px;
-  }
+    .cb-source{
+        height: 13px;
+        margin-left: 15px;
+    }
+
+    .lbl-source{
+        text-transform: capitalize;
+        width: 100%;
+    }
 }
