@@ -1,0 +1,39 @@
+
+<div class="video-container">
+    <div class="video-header">
+        <div class="video-title">
+            <span>{{show.title}}</span>
+        </div>
+        <div class="video-views">
+            <span>{{show.views}} Views</span>
+        </div>
+    </div>
+    <div class="show" *ngIf="show.source == 'facebook'">
+        <div *ngIf="show.videoId; else elseBlock">
+            <img src="https://graph.facebook.com/{{show.videoId}}/picture" />
+            <embed [src]="('http://www.facebook.com/v/' + show.videoId )| safe"
+                   type="application/x-shockwave-flash" allowscriptaccess="always"
+                   allowfullscreen="true" width="560" height="224" />
+        </div>
+        <ng-template #elseBlock>Facebook video is missing</ng-template>
+    </div>
+
+    <div class="show" *ngIf="show.source == 'youtube'">
+        <div *ngIf="show.videoId; else elseBlock">
+            <iframe width="560" height="315" [src]="('https://www.youtube.com/embed/' + show.videoId) | safe" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <ng-template #elseBlock>Youtube video is missing</ng-template>
+    </div>
+
+    <div class="show" *ngIf="show.source == 'url'">
+        <div *ngIf="show.url; else elseBlock">
+            <video width="560" height="240" controls>
+                <source src="{{show.url}}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <ng-template #elseBlock>Video is missing</ng-template>
+    </div>
+</div>
+
+

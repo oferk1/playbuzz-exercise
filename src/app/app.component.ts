@@ -1,17 +1,22 @@
-import { Component } from "@angular/core";
-import { Router } from "@angular/router";
-import { useStrict } from "mobx";
-
-useStrict(true);
+import { Component, OnInit } from "@angular/core";
+import { HeaderStore } from "./state/header.store";
 
 @Component({
-    selector: 'my-app',
+    selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+    styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-    constructor(private router: Router) {
+    constructor(private headerStore: HeaderStore) {
+    }
+
+    ngOnInit() {
+
+        this.headerStore.criteriaObservable.subscribe(
+            criteria => console.log(`criteria: ${criteria}`)
+        );
+
     }
 
 }

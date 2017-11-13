@@ -1,0 +1,16 @@
+<div class="row offset-md-1 main">
+    <button type="submit" class="btn btn-success-outline"
+            (click)="doSearch()">show feed
+    </button>
+    <label for="options">Choose sources:</label>
+    <div *ngFor="let option of options">
+        <label class="lbl-source">
+            <input type="checkbox"
+                   name="options"
+                   class="cb-source"
+                   value="{{option.value}}"
+                   [(ngModel)]="option.checked"/>
+            {{option.name}}
+        </label>
+    </div>
+</div>

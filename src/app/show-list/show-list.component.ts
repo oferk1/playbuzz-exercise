@@ -1,36 +1,36 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { ShowsOrchestrator } from "../state/shows/shows.orchestrator";
-import { TopBarOrchestrator } from "../state/top-bar/top-bar.orchestrator";
-
+import { ShowListService } from "./show-list.service";
+import { HeaderStore } from "../state/header.store";
+import { map, filter, flow} from 'lodash/fp';
 @Component({
-    selector: 'show',
+    selector: 'app-show-list',
     templateUrl: 'show-list.component.html',
     styleUrls: ['show-list.component.scss'],
+    providers: [ShowListService],
 })
 export class ShowListComponent implements OnInit {
 
-    constructor(private router: Router,
-                private showOrchestrator: ShowsOrchestrator,
-                private topBarOrchestrator: TopBarOrchestrator) {
+    shows = [];
+
+    constructor(
+                private headerStore: HeaderStore,
+                private showListService: ShowListService) {
     }
 
     ngOnInit() {
-        if (this.topBarOrchestrator.store.criteria !== '') {
-            this.showOrchestrator.getShows(this.topBarOrchestrator.store.criteria);
-        }
+        // this is dirty, we will see how to clean this up later on...
+        this.headerStore.criteriaObservable.subscribe(
+            criteria => this.showListService.getShows(criteria).subscribe(
+                shows => {
+                    const shows1 = flow(
+                        map(item => item),
+                        filter(item => true)
+                    )(shows)
+                    this.shows = shows1[0];
+                }
+            )
+        );
+
     }
 
-    navigate(show: any) {
-        this.router.navigate(['show', show.id]);
-    }
-
-    doSearch() {
-        this.topBarOrchestrator.store.setIsBlocked(false);
-        this.showOrchestrator.getShows(this.topBarOrchestrator.store.criteria);
-    }
-
-    setLoggedIn(state) {
-        this.topBarOrchestrator.store.setLoggedInState(state);
-    }
 }

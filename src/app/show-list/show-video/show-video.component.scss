@@ -1,0 +1,40 @@
+.video-header, .show{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.video-header{
+    height: 60px;
+}
+.video-title{
+    width: 500px;
+    text-align: left;
+    padding: 10px;
+}
+.video-views{
+    width: 500px;
+    text-align: right;
+    padding: 10px;
+}
+
+.video-container{
+    width: 560px;
+    height: 375px;
+    border: 1px solid lightgray;
+    margin-top: 60px;
+
+}
+
+.show{
+    img{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -0%);
+        width: 300px;
+    }
+}
