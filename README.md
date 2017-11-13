@@ -1,6 +1,6 @@
-Video Feed
+Video Feed - Playbuzz front-end exercise
+
 **********
-Playbuzz front-end exercise
 
 Set up:
 *************
