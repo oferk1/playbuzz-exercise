@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { ShowsStore } from "../state/shows.store";
 import { ShowListService } from "./show-list.service";
 import { HeaderStore } from "../state/header.store";
 import { map, filter, flow} from 'lodash/fp';

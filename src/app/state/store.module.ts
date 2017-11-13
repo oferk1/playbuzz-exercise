@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { ShowsStore } from "./shows.store";
 import { HeaderStore } from "./header.store";
 import { CommonModule } from "@angular/common";
 
@@ -9,7 +8,6 @@ import { CommonModule } from "@angular/common";
     ],
     providers: [
         HeaderStore,
-        ShowsStore,
     ],
 })
 export class StoreModule {
