@@ -16,9 +16,10 @@ const extractFilter = (req) => {
 router.get('/', (req, res) => {
     http.get(pbCdnFeed, (response) => {
         response.on('data', function (str) {
-            const videosList = JSON.parse(str);
-            const filteredVideos = _.filter(videosList.items, extractFilter(req));
-            res.send({ items: filteredVideos })
+            const videos = JSON.parse(str);
+            const filterBy = extractFilter(req);
+            const items = _.filter(videos.items, filterBy );
+            res.send({ items })
         });
     });
 });
