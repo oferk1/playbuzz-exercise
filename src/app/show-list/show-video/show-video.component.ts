@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
-    selector: 'app-show-tile',
-    styleUrls: ['show-tile.component.scss'],
-    templateUrl: 'show-tile.component.html'
+    selector: 'app-show-facebook',
+    styleUrls: ['show-video.component.scss'],
+    templateUrl: 'show-video.component.html'
 })
-export class ShowTileComponent {
+export class ShowVideoComponent {
 
     @Input() show: any;
 

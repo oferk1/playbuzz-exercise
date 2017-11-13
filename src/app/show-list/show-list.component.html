@@ -1,3 +1,3 @@
 <div class="row offset-md-1">
-    <div *ngFor="let show of shows" >{{show.title}}</div>
+    <app-show-facebook *ngFor="let show of shows" [show]="show"></app-show-facebook>
 </div>

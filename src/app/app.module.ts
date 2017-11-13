@@ -6,10 +6,12 @@ import { HttpModule } from "@angular/http";
 import { AppComponent } from "./app.component";
 import { ShowListComponent } from "./show-list/show-list.component";
 import { HeaderModule } from "./header/header.module";
-import { ShowTileComponent } from "./show-list/show-tile/show-tile.component";
+import { ShowVideoComponent } from "./show-list/show-video/show-video.component";
 import { ArrayJoinPipe } from "./common/pipes/array-join.pipe";
+import { SafePipe } from "./common/pipes/safe.pipe";
 import { routing } from "./app.routes";
 import { StoreModule } from "./state/store.module";
+
 
 @NgModule({
     imports: [
@@ -23,8 +25,9 @@ import { StoreModule } from "./state/store.module";
     declarations: [
         AppComponent,
         ShowListComponent,
-        ShowTileComponent,
+        ShowVideoComponent,
         ArrayJoinPipe,
+        SafePipe
     ],
     providers: [],
     bootstrap: [AppComponent]
